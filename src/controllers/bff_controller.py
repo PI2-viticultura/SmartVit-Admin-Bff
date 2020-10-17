@@ -1,6 +1,4 @@
 import aiohttp
-import requests
-import json
 
 
 async def fetch(session, url, data=None):

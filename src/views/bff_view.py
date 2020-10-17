@@ -1,8 +1,7 @@
-from fastapi import APIRouter, Response, Request
+from fastapi import APIRouter, Response
 from controllers import bff_controller
 from utils.formatters import create_response
 from pydantic import BaseModel
-from typing import Optional
 
 router = APIRouter()
 
