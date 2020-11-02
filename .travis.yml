@@ -1,0 +1,25 @@
+language: python
+python:
+  - 3.7
+
+services:
+  - docker
+
+env:
+  - DOCKER_COMPOSE_VERSION=1.4.2
+
+before_install:
+  - python --version
+  - pip install -U pip
+  - pip install pytest
+
+script: flake8
+  
+jobs:
+  include:
+      - stage: build
+        script: 
+          - docker build -t smart-vit/admin-bff .
+      - stage: test
+        script: 
+          - flake8
