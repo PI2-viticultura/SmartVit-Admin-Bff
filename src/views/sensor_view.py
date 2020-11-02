@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Response
-from controllers import bff_controller
+from controllers import sensor_controller
 from utils.formatters import create_response
 from pydantic import BaseModel
 
@@ -12,5 +12,5 @@ class Item(BaseModel):
 
 @router.post('/bff/')
 async def feedback(response: Response, item: Item):
-    result, status = await bff_controller.post_bff(item.dict())
+    result, status = await sensor_controller.post_bff(item.dict())
     return create_response(result, status, response)
