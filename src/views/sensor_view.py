@@ -2,15 +2,21 @@ from fastapi import APIRouter, Response
 from controllers import sensor_controller
 from utils.formatters import create_response
 from pydantic import BaseModel
+from typing import Optional
 
 router = APIRouter()
 
 
-class Item(BaseModel):
-    title: str
+class Sensor(BaseModel):
+    location: str
+    identifier: str
+    type: str
+    situation: str
+    last_register: Optional[str] = None
+    system_id: str
 
 
-@router.post('/bff/')
-async def feedback(response: Response, item: Item):
-    result, status = await sensor_controller.post_bff(item.dict())
+@router.post('/sensor/')
+async def sensor(response: Response, sensor: Sensor):
+    result, status = await sensor_controller.post_sensor(sensor.dict())
     return create_response(result, status, response)
