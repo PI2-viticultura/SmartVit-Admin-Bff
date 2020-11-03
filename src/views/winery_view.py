@@ -19,12 +19,12 @@ async def winery(response: Response, winery: Winery):
 
 
 @router.get('/winery/')
-async def winery(response: Response):
+async def winery_get(response: Response):
     result, status = await winery_controller.get_winery()
     return create_response(result, status, response)
 
 
 @router.patch('/winery/{winery_id}')
-async def winery(response: Response, winery_id: str):
+async def winery_patch(response: Response, winery_id: str):
     result, status = await winery_controller.patch_winery(winery_id)
     return create_response(result, status, response)

@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Response
 from controllers import order_controller
 from utils.formatters import create_response
-from pydantic import BaseModel
 
 router = APIRouter()
 

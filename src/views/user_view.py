@@ -22,12 +22,12 @@ async def user(response: Response, user: User):
 
 
 @router.get('/user/')
-async def user(response: Response):
+async def user_get(response: Response):
     result, status = await user_controller.get_user()
     return create_response(result, status, response)
 
 
 @router.put('/user/{user_id}')
-async def user(response: Response, user_id: str, user: User):
+async def user_put(response: Response, user_id: str, user: User):
     result, status = await user_controller.update_user(user_id, user.dict())
     return create_response(result, status, response)
