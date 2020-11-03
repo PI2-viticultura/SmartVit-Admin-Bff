@@ -19,6 +19,6 @@ class Contract(BaseModel):
 
 
 @router.post('/contracts/')
-async def feedback(response: Response, contract: Contract):
+async def contrats(response: Response, contract: Contract):
     result, status = await contract_controller.post_contract(contract.dict())
     return create_response(result, status, response)

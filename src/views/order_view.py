@@ -6,11 +6,13 @@ from pydantic import BaseModel
 router = APIRouter()
 
 
-class Item(BaseModel):
-    title: str
+@router.get('/orders/')
+async def feedback(response: Response):
+    result, status = await order_controller.get_orders()
+    return create_response(result, status, response)
 
 
-@router.post('/bff/')
-async def feedback(response: Response, item: Item):
-    result, status = await order_controller.post_bff(item.dict())
+@router.patch('/orders/{order_id}')
+async def feedback(response: Response, order_id: str):
+    result, status = await order_controller.patch_orders(order_id)
     return create_response(result, status, response)
