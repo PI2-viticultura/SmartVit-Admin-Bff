@@ -8,7 +8,7 @@ urlEnv = os.getenv(
 )
 
 
-async def retrieve(session, url, data=None):
+async def retrieve(session, url):
     header = {
         'Accept': 'application/json'
     }
