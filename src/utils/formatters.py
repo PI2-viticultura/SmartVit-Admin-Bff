@@ -5,8 +5,6 @@ def create_response(result, status, response):
     elif isinstance(result, str):
         if status >= 400:
             result = {"error": result}
-        else:
-            result = {"message": result}
     else:
         result = {"error": "Something gone wrong"}
 
