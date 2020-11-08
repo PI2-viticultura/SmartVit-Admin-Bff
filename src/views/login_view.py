@@ -5,6 +5,7 @@ from pydantic import BaseModel
 
 router = APIRouter()
 
+
 class User(BaseModel):
     email: str
     password: str
