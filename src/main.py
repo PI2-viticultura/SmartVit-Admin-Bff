@@ -10,7 +10,8 @@ from views import (
     sensor_view,
     system_view,
     user_view,
-    winery_view
+    winery_view,
+    login_view
 )
 
 app = FastAPI()
@@ -34,6 +35,7 @@ app.include_router(sensor_view.router)
 app.include_router(system_view.router)
 app.include_router(user_view.router)
 app.include_router(winery_view.router)
+app.include_router(login_view.router)
 
 if __name__ == "__main__":
     server_config = load_configuration()
